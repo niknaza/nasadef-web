@@ -28,8 +28,9 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <video autoplay muted loop class="hero-video">
+        <video autoplay muted loop playsinline class="hero-video" preload="auto">
             <source src="images/hero-bg.mp4" type="video/mp4">
+            <source src="images/hero-bg.webm" type="video/webm">
             Your browser does not support the video tag.
         </video>
         
@@ -331,6 +332,40 @@
             } else {
                 header.style.background = '#ffffff';
                 header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Video error handling and debugging
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.querySelector('.hero-video');
+            if (video) {
+                video.addEventListener('loadstart', function() {
+                    console.log('Video loading started');
+                });
+
+                video.addEventListener('canplay', function() {
+                    console.log('Video can start playing');
+                    this.style.opacity = '1';
+                });
+
+                video.addEventListener('error', function(e) {
+                    console.error('Video failed to load:', e);
+                    this.style.opacity = '0';
+                    // Fallback to background image
+                    const hero = document.querySelector('.hero');
+                    if (hero) {
+                        hero.style.backgroundImage = 'url("images/hero-bg.jpg")';
+                    }
+                });
+
+                video.addEventListener('loadeddata', function() {
+                    console.log('Video data loaded');
+                });
+
+                // Force play if autoplay fails
+                video.play().catch(function(error) {
+                    console.log('Autoplay failed:', error);
+                });
             }
         });
     </script>

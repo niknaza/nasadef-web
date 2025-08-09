@@ -28,17 +28,33 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <video autoplay muted loop class="hero-video">
+        <video autoplay muted loop playsinline class="hero-video" preload="auto">
             <source src="images/hero-bg.mp4" type="video/mp4">
+            <source src="images/hero-bg.webm" type="video/webm">
             Your browser does not support the video tag.
         </video>
+        
+        <!-- Floating Decorations -->
+        <div class="hero-decoration"></div>
+        <div class="hero-decoration-2"></div>
+        <div class="hero-decoration-3"></div>
+        
         <div class="container">
-            <h1>AISA - AI Service Agent</h1>
-            <p>Revolusi customer service dengan AI yang canggih. Automasi penuh untuk WhatsApp, Telegram, dan platform digital lain dengan jawapan pintar dan respons segera 24/7.</p>
-            <div class="hero-buttons">
-                <a href="https://wa.ai-serviceagent.com/auth/google" target="_blank" class="cta-button cta-secondary">Sign Up AISA</a>
-                <a href="https://ai-serviceagent.com" target="_blank" class="cta-button cta-outline">Go to AISA Platform</a>
-                <a href="#features" class="cta-button">Ketahui Lebih Lanjut</a>
+            <div class="hero-content">
+                <h1>AISA - AI Service Agent</h1>
+                <p>Revolusi customer service dengan AI yang canggih. Automasi penuh untuk WhatsApp, Telegram, dan platform digital lain dengan jawapan pintar dan respons segera 24/7.</p>
+                
+                <!-- CTA Overlay Section -->
+                <div class="hero-cta-overlay">
+                    <h2>Mula Menggunakan AISA Hari Ini</h2>
+                    <p class="cta-subtitle">Revolutionize customer service anda dengan AI yang pintar dan responsive. Daftar sekarang dan rasai perbezaannya!</p>
+                    
+                    <div class="hero-buttons">
+                        <a href="https://wa.ai-serviceagent.com/auth/google" target="_blank" class="cta-button cta-secondary">Sign Up Sekarang</a>
+                        <a href="index.html#contact" class="cta-button cta-outline">Hubungi Sales</a>
+                        <a href="https://ai-serviceagent.com" target="_blank" class="cta-button">Ketahui Lebih Lanjut</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
