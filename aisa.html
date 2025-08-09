@@ -30,7 +30,6 @@
     <section id="home" class="hero">
         <video autoplay muted loop playsinline class="hero-video" preload="auto" poster="images/hero-bg.jpg">
             <source src="images/hero-bg.mp4" type="video/mp4">
-            <source src="images/hero-bg.webm" type="video/webm">
             Your browser does not support the video tag.
         </video>
         
@@ -329,13 +328,13 @@
             video.addEventListener('canplay', handleVideoSuccess);
             video.addEventListener('error', handleVideoError);
             
-            // Fallback timeout - if video doesn't load within 3 seconds, use image
+            // Fallback timeout - if video doesn't load within 2 seconds, use image
             videoLoadTimeout = setTimeout(() => {
                 if (video.readyState < 2) { // HAVE_CURRENT_DATA
                     console.log('Video loading timeout, using fallback image');
                     handleVideoError();
                 }
-            }, 3000);
+            }, 2000);
             
             // Try to play video
             video.play().catch((error) => {
