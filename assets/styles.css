@@ -67,9 +67,17 @@ nav {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-    padding: 120px 0 80px;
+    /* Menambah lapisan putih separa telus untuk kebolehbacaan teks yang lebih baik */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('/images/hero-bg.jpg'); /* Path ke gambar */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    color: white;
 }
 
 .hero h1 {
