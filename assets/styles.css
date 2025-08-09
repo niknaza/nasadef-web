@@ -79,17 +79,12 @@ nav {
 
 .hero-video {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 85%;
-    height: 85%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    transform: translate(-50%, -50%);
-    border-radius: 30px;
     z-index: -2;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    mask: radial-gradient(ellipse 80% 70% at center, black 60%, transparent 100%);
-    -webkit-mask: radial-gradient(ellipse 80% 70% at center, black 60%, transparent 100%);
 }
 
 .hero::before {
@@ -103,33 +98,19 @@ nav {
     z-index: -1;
 }
 
-.hero::after {
-    content: '';
-    position: absolute;
-    top: 10%;
-    left: 10%;
-    right: 10%;
-    bottom: 10%;
-    border-radius: 30px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    z-index: 0;
-    box-shadow: 
-        inset 0 0 60px rgba(255, 255, 255, 0.1),
-        0 0 60px rgba(30, 58, 138, 0.3);
-}
-
 .hero .container {
     position: relative;
     z-index: 1;
+    max-width: 1000px;
+}
+
+.hero-content {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(15px);
-    border-radius: 20px;
+    border-radius: 30px;
     padding: 3rem;
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
 }
 
 .hero h1 {
@@ -153,6 +134,33 @@ nav {
     margin-right: auto;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
     opacity: 0.95;
+}
+
+/* Hero CTA Overlay */
+.hero-cta-overlay {
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.9), rgba(59, 130, 246, 0.9));
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin-top: 2rem;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.hero-cta-overlay h2 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-cta-overlay .cta-subtitle {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 .hero-buttons {
@@ -969,23 +977,22 @@ footer {
         font-size: 1.1rem;
     }
     
-    .hero .container {
+    .hero-content {
         padding: 2rem;
         margin: 1rem;
     }
     
-    .hero-video {
-        width: 95%;
-        height: 95%;
-        border-radius: 20px;
+    .hero-cta-overlay {
+        padding: 2rem;
+        margin-top: 1.5rem;
     }
     
-    .hero::after {
-        top: 5%;
-        left: 5%;
-        right: 5%;
-        bottom: 5%;
-        border-radius: 20px;
+    .hero-cta-overlay h2 {
+        font-size: 2rem;
+    }
+    
+    .hero-cta-overlay .cta-subtitle {
+        font-size: 1rem;
     }
     
     .hero-decoration,
