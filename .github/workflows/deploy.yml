@@ -1,0 +1,49 @@
+name: Deploy Static Site to Namecheap
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Deploy to Namecheap via FTPS
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.3
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        protocol: ftp
+        port: 21
+        local-dir: ./
+        server-dir: /public_html/
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          **/.venv/**
+          **/__pycache__/**
+          **/*.pyc
+          **/*.pyo
+          **/*.pyd
+          **/.*
+          **/.*/*
+          README.md
+          .gitignore
+          .github/**
+          docs/**
+          tests/**
+          examples/**
+          native/**
+          Guide/**
+          *.log
+          *.tmp
+          .DS_Store
+        timeout: 300000
